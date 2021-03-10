@@ -22,7 +22,6 @@ while True:
         # Then we are left with the "message\r\n" and we strip them with rstrip()
         msg = data[data.find('#')+len(channel)+2:data.find('\\r')].rstrip();
         print(f"{usr}: {msg}");
+    elif 'PING' in data:
+	s.send(bytes('PONG\r\n', 'ascii'));
 
-
-# Note: I am not very experienced with IRC, if you get randomly disconnected,
-# it may be because twitch expects a PONG reply to their PING.
